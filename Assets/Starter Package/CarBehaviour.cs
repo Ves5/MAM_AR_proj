@@ -22,6 +22,7 @@ using UnityEngine;
  */
 public class CarBehaviour : MonoBehaviour
 {
+    public ScoreCounter ScoreCounter;
     public ReticleBehaviour Reticle;
     public float Speed = 1.2f;
 
@@ -45,6 +46,7 @@ public class CarBehaviour : MonoBehaviour
         var Package = other.GetComponent<PackageBehaviour>();
         if (Package != null)
         {
+            ScoreCounter.ChangeScore();
             Destroy(other.gameObject);
         }
     }

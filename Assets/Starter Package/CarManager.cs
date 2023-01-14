@@ -27,6 +27,7 @@ public class CarManager : MonoBehaviour
     public GameObject CarPrefab;
     public ReticleBehaviour Reticle;
     public DrivingSurfaceManager DrivingSurfaceManager;
+    public ScoreCounter ScoreCounter;
 
     public CarBehaviour Car;
 
@@ -39,6 +40,7 @@ public class CarManager : MonoBehaviour
             Car = obj.GetComponent<CarBehaviour>();
             Car.Reticle = Reticle;
             Car.transform.position = Reticle.transform.position;
+            Car.ScoreCounter = ScoreCounter;
             DrivingSurfaceManager.LockPlane(Reticle.CurrentPlane);
         }
     }

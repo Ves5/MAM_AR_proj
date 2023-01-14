@@ -51,6 +51,18 @@ public class PackageSpawner : MonoBehaviour
         return randomPoint;
     }
 
+    public void OnClick()
+    {
+        var lockedPlane = DrivingSurfaceManager.LockedPlane;
+        if (lockedPlane != null)
+        {
+            if (Package == null)
+            {
+                SpawnPackage(lockedPlane);
+            }
+        }
+    }
+    
     public void SpawnPackage(ARPlane plane)
     {
         var packageClone = GameObject.Instantiate(PackagePrefab);
@@ -64,10 +76,10 @@ public class PackageSpawner : MonoBehaviour
         var lockedPlane = DrivingSurfaceManager.LockedPlane;
         if (lockedPlane != null)
         {
-            if (Package == null)
-            {
-                SpawnPackage(lockedPlane);
-            }
+            // if (Package == null)
+            // {
+            //     SpawnPackage(lockedPlane);
+            // }
 
             var packagePosition = Package.gameObject.transform.position;
             packagePosition.Set(packagePosition.x, lockedPlane.center.y, packagePosition.z);
